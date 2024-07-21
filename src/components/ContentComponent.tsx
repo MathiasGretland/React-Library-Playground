@@ -6,7 +6,8 @@ const ContentComponent = () => {
 
   return (
     <>
-      <div className="h-[1000px] m-[500px]">
+      <div>
+        <h1>Some sample text</h1>
         <WordRotate words={words} />
       </div>
     </>
