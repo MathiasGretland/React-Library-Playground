@@ -1,4 +1,6 @@
 import { getWordRotateWords } from "../utils/MagicUiUtils";
+import LibrarySelector from "./LibrarySelector";
+import Playground from "./Playground";
 import WordRotate from "./magicui/WordRotate";
 
 const ContentComponent = () => {
@@ -6,7 +8,20 @@ const ContentComponent = () => {
 
   return (
     <>
-      <div>
+      <div className="flex h-full w-[1200px] flex-col justify-center overflow-hidden rounded-b-lg  bg-background md:shadow-xl">
+        <LibrarySelector />
+        <br />
+        <Playground />
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
+        <h1>Some sample text</h1>
         <h1>Some sample text</h1>
         <WordRotate words={words} />
       </div>
