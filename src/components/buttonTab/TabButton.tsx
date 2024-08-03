@@ -23,22 +23,39 @@ const animationProps = {
   },
 } as AnimationProps;
 
-// Manipulated the ShinyButton to hold images as well
-interface ShinyButtonProps {
+export interface TabButtonProps {
   text?: string;
   img?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  selected?: boolean;
 }
 
-const ShinyButton = ({ text = "", img, onClick }: ShinyButtonProps) => {
+const TabButton = ({
+  text = "",
+  img,
+  onClick,
+  selected = true,
+}: TabButtonProps) => {
   return (
     <motion.button
       {...animationProps}
       onClick={onClick}
-      className="relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]"
+      className={`relative rounded-md px-6 py-2 font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out ${
+        selected
+          ? "bg-tabButtonBackgroundColorLight dark:bg-tabButtonBackgroundColorDark dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]"
+          : "bg-buttonTabBackgroundColorLight dark:bg-buttonTabBackgroundColorDark dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]"
+      } focus:outline-none focus:ring-0 focus:ring-offset-2 focus:ring-primary focus:ring-offset-bg`}
+      style={{
+        borderColor: "transparent", // Override border color
+        scale: 0.8,
+      }}
     >
       <span
-        className="relative h-full w-full text-sm uppercase tracking-wide text-[rgb(0,0,0,65%)] dark:font-light dark:text-[rgb(255,255,255,90%)] flex items-center justify-center"
+        className={`relative h-full w-full text-sm uppercase tracking-wide flex items-center justify-center ${
+          selected
+            ? "text-[rgb(0,0,0,65%)] dark:font-light dark:text-[rgb(255,255,255,90%)]"
+            : "text-tabButtonNotSelectedTextColorLight dark:font-light dark:text-tabButtonNotSelectedTextColorDark"
+        }`}
         style={{
           maskImage:
             "linear-gradient(-75deg,hsl(var(--primary)) calc(var(--x) + 20%),transparent calc(var(--x) + 30%),hsl(var(--primary)) calc(var(--x) + 100%))",
@@ -58,4 +75,4 @@ const ShinyButton = ({ text = "", img, onClick }: ShinyButtonProps) => {
   );
 };
 
-export default ShinyButton;
+export default TabButton;
