@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ButtonTab from "./buttonTab/ButtonTab";
 import ShineBorder from "./magicui/ShineBorder";
+import GithubStarButton from "./GithubStarButton";
 
 const Playground = () => {
   const [selectedTab, setSelectedTab] = useState<string>("playground");
@@ -17,8 +18,8 @@ const Playground = () => {
           />
         </div>
         {/** Github button */}
-        <div className="flex items-center mr-10">
-          <span>Github Button Thingy Goes Here</span>
+        <div className="flex items-center mr-12">
+          <GithubStarButton starCount={20000} />
         </div>
       </div>
 

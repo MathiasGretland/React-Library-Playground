@@ -53,8 +53,8 @@ const TabButton = ({
       <span
         className={`relative h-full w-full text-sm uppercase tracking-wide flex items-center justify-center ${
           selected
-            ? "text-[rgb(0,0,0,65%)] dark:font-light dark:text-[rgb(255,255,255,90%)]"
-            : "text-tabButtonNotSelectedTextColorLight dark:font-light dark:text-tabButtonNotSelectedTextColorDark"
+            ? "text-[rgb(0,0,0,65%)] dark:text-[rgb(255,255,255,90%)]"
+            : "text-tabButtonNotSelectedTextColorLight dark:text-tabButtonNotSelectedTextColorDark"
         }`}
         style={{
           maskImage:

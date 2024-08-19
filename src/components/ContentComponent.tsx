@@ -1,6 +1,7 @@
 import { getWordRotateWords } from "../utils/MagicUiUtils";
 import LibrarySelector from "./LibrarySelector";
 import Playground from "./Playground";
+import NumberTicker from "./magicui/NumberTicker";
 import WordRotate from "./magicui/WordRotate";
 
 const ContentComponent = () => {
@@ -18,6 +19,7 @@ const ContentComponent = () => {
         <h1>Some sample text</h1>
         <h1>Some sample text</h1>
         <h1>Some sample text</h1>
+        <NumberTicker value={20000} />
         <h1>Some sample text</h1>
         <h1>Some sample text</h1>
         <h1>Some sample text</h1>
