@@ -5,6 +5,7 @@ import { isDarkModeSet } from "../utils/ThemeProviderUtils";
 import githubLogoLight from "../assets/githubLight.svg";
 import githubLogoDark from "../assets/githubDark.svg";
 import NumberTicker from "./magicui/NumberTicker";
+import { GithubRepo } from "../redux/@types/GtihubRepo";
 
 const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },
@@ -28,27 +29,19 @@ const animationProps = {
 } as AnimationProps;
 
 interface GithubStarButtonProps {
-  starCount: number;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  githubData: GithubRepo;
 }
 
-const GithubStarButton = ({ starCount, onClick }: GithubStarButtonProps) => {
-  const isDarkMode = isDarkModeSet();
-  const githubLogo = isDarkMode ? githubLogoLight : githubLogoDark;
-
+const GithubStarButton = ({ githubData }: GithubStarButtonProps) => {
+  const githubLogo = isDarkModeSet() ? githubLogoLight : githubLogoDark;
   return (
     <motion.button
       {...animationProps}
-      onClick={onClick}
-      // bg-[rgb(24,24,27)]
+      onClick={() => {
+        window.open(githubData.html_url, "_blank");
+      }}
       className="relative rounded-lg px-2 py-2 font-medium bg-githubButtonBackgroundColorLight dark:bg-githubButtonBackgroundColorDark backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)] group"
     >
-      {/** PERSONAL NOTES FOR GITHUBSTARBUTTON */}
-      {/** You still have to change the background color of the buttons for both*/}
-      {/** Light and Dark mode, remember to also change the text color to match */}
-      {/** The Star icon should have the right colors for both Light and Dark mode */}
-      {/** Do a quick implementation of RTK to fetch Github star count data */}
-      {/** How you ask? Well we don't know yet */}
       <span
         className="relative h-full w-full text-sm uppercase tracking-wide text-[rgb(0,0,0,65%)] dark:text-[rgb(255,255,255,90%)] flex items-center justify-center"
         style={{
@@ -76,7 +69,7 @@ const GithubStarButton = ({ starCount, onClick }: GithubStarButtonProps) => {
         </svg>
         <NumberTicker
           className="text-githubButtonTextColorLight dark:text-githubButtonTextColorDark"
-          value={starCount}
+          value={githubData?.stargazers_count}
         />
       </span>
       <span

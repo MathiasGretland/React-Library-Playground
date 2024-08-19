@@ -1,9 +1,10 @@
+import { TTab } from "../../@types";
 import TabButton from "./TabButton";
 
 interface ButtonTabsProps {
-  buttons: string[];
-  setSelectedTab: React.Dispatch<React.SetStateAction<string>>;
-  selectedTab: string;
+  buttons: TTab[];
+  setSelectedTab: React.Dispatch<React.SetStateAction<TTab>>;
+  selectedTab: TTab;
 }
 
 const ButtonTab = ({
@@ -11,8 +12,6 @@ const ButtonTab = ({
   setSelectedTab,
   selectedTab,
 }: ButtonTabsProps) => {
-  console.log("selectedTab", selectedTab);
-
   return (
     <div className="p-2 space-x-1 flex rounded-md bg-buttonTabBackgroundColorLight dark:bg-buttonTabBackgroundColorDark">
       {buttons.map((button) => {
