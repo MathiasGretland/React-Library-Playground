@@ -1,26 +1,41 @@
-import { useState } from "react";
 import ButtonTab from "./buttonTab/ButtonTab";
 import ShineBorder from "./magicui/ShineBorder";
 import GithubStarButton from "./GithubStarButton";
+import { TLibrary, TTab } from "../@types";
+import { GithubRepo } from "../redux/@types/GtihubRepo";
 
-const Playground = () => {
-  const [selectedTab, setSelectedTab] = useState<string>("playground");
+export interface PlaygroundProps {
+  selectedTab: TTab;
+  setSelectedTab: React.Dispatch<React.SetStateAction<TTab>>;
+  selectedLibrary: TLibrary;
+  githubData: GithubRepo | undefined;
+}
 
+const Playground = ({
+  selectedTab,
+  setSelectedTab,
+  selectedLibrary,
+  githubData,
+}: PlaygroundProps) => {
+  // Remove this, it's only to not get a typecheck and lint error for now
+  console.log("selectedLibrary", selectedLibrary);
   return (
     <div>
       <div className="h-90 flex justify-between">
         {/** Showcase selector */}
         <div className="p-2 ml-10 flex justify-start">
           <ButtonTab
-            buttons={["playground", "File tree"]}
+            buttons={["playground", "file-tree"]}
             setSelectedTab={setSelectedTab}
             selectedTab={selectedTab}
           />
         </div>
         {/** Github button */}
-        <div className="flex items-center mr-12">
-          <GithubStarButton starCount={20000} />
-        </div>
+        {githubData && (
+          <div className="flex items-center mr-12">
+            <GithubStarButton githubData={githubData} />
+          </div>
+        )}
       </div>
 
       {/* Inner Playground container */}
