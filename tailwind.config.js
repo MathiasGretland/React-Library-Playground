@@ -11,6 +11,10 @@ module.exports = {
         tabButtonBackgroundColorDark: "#0C0A09",
         tabButtonNotSelectedTextColorLight: "#78716C",
         tabButtonNotSelectedTextColorDark: "#A8A29E",
+        githubButtonBackgroundColorLight: "#18181B",
+        githubButtonBackgroundColorDark: "#FAFAFA",
+        githubButtonTextColorLight: "#FAFAFA",
+        githubButtonTextColorDark: "#18181B",
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
