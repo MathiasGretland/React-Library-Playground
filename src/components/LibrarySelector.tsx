@@ -1,5 +1,5 @@
 import { TLibrary } from "../@types";
-import { getLibrarySelectorButtons } from "../utils/LibrarySelectorUtils";
+import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
 import LibrarySelectorButton from "./LibrarySelectorButton";
 
 interface LibrarySelectorProps {
@@ -14,7 +14,7 @@ const LibrarySelector = ({
   console.log(selectedLibrary);
   console.log(setSelectedLibrary);
 
-  const libraryButtons = getLibrarySelectorButtons();
+  const libraryButtons = getLibrarySelectorValues();
 
   return (
     <div>

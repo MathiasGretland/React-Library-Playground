@@ -1,16 +1,11 @@
 import { useState } from "react";
-import { getWordRotateWords } from "../utils/MagicUiUtils";
 import LibrarySelector from "./LibrarySelector";
 import Playground from "./Playground";
-import NumberTicker from "./magicui/NumberTicker";
-import WordRotate from "./magicui/WordRotate";
 import { TLibrary, TTab } from "../@types";
 import { useGetRepoDetailsQuery } from "../redux/api";
 import { getAPIOwnerAndRepoFromLibrary } from "../utils/LibrarySelectorUtils";
 
 const ContentComponent = () => {
-  const words = getWordRotateWords();
-
   // ------ State ------
   const [selectedTab, setSelectedTab] = useState<TTab>("playground");
   const [selectedLibrary, setSelectedLibrary] = useState<TLibrary>("platejs");
@@ -34,19 +29,14 @@ const ContentComponent = () => {
           selectedLibrary={selectedLibrary}
           githubData={githubData}
         />
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <NumberTicker value={20000} />
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <h1>Some sample text</h1>
-        <WordRotate words={words} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </>
   );

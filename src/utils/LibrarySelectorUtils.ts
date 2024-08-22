@@ -26,7 +26,7 @@ export function getAPIOwnerAndRepoFromLibrary(library: TLibrary): {
  * Returns all the library info of the current supported libraries in the playground
  * Add more libraries here in the future
  */
-export function getLibrarySelectorButtons(): {
+export function getLibrarySelectorValues(): {
   value: TLibrary;
   text: string;
   logo: string;

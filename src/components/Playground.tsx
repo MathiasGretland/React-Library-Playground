@@ -3,6 +3,8 @@ import ShineBorder from "./magicui/ShineBorder";
 import GithubStarButton from "./GithubStarButton";
 import { TLibrary, TTab } from "../@types";
 import { GithubRepo } from "../redux/@types/GtihubRepo";
+import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
+import PlatejsFileTree from "./fileTrees/PlatejsFileTree";
 
 export interface PlaygroundProps {
   selectedTab: TTab;
@@ -17,8 +19,11 @@ const Playground = ({
   selectedLibrary,
   githubData,
 }: PlaygroundProps) => {
-  // Remove this, it's only to not get a typecheck and lint error for now
-  console.log("selectedLibrary", selectedLibrary);
+  const libraryButtons = getLibrarySelectorValues();
+  const selectedLibraryValue = libraryButtons.find(
+    (button) => button.value === selectedLibrary
+  );
+
   return (
     <div>
       <div className="h-90 flex justify-between">
@@ -44,10 +49,13 @@ const Playground = ({
           className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          {/** text-transparent dark:from-white dark:to-slate-900/10 */}
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none ">
-            Playground goes here
-          </span>
+          {selectedTab === "playground" ? (
+            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none ">
+              {selectedLibraryValue?.text}
+            </span>
+          ) : (
+            <PlatejsFileTree />
+          )}
         </ShineBorder>
       </div>
     </div>

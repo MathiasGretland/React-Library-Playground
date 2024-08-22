@@ -12,7 +12,7 @@ interface LibrarySelectorButtonProps {
 const LibrarySelectorButton = ({
   text,
   logo,
-  className = "h-24 w-24",
+  className = "h-24 w-20",
   selected,
   onClick,
 }: LibrarySelectorButtonProps) => {
@@ -41,7 +41,7 @@ const LibrarySelectorButton = ({
 
       <span
         className={cn(
-          `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-white/40 text-xs transition-shadow duration-500 ease-out [--bg-size:300%] dark:bg-black/40,`
+          `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent bg-white/40 text-sm transition-shadow duration-500 ease-out [--bg-size:300%] dark:bg-black/40,`
         )}
       >
         {text}
