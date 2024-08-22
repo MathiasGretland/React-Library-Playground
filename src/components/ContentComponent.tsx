@@ -6,14 +6,14 @@ import NumberTicker from "./magicui/NumberTicker";
 import WordRotate from "./magicui/WordRotate";
 import { TLibrary, TTab } from "../@types";
 import { useGetRepoDetailsQuery } from "../redux/api";
-import { getAPIOwnerAndRepoFromLibrary } from "../utils/SelectedLibraryUtils";
+import { getAPIOwnerAndRepoFromLibrary } from "../utils/LibrarySelectorUtils";
 
 const ContentComponent = () => {
   const words = getWordRotateWords();
 
   // ------ State ------
   const [selectedTab, setSelectedTab] = useState<TTab>("playground");
-  const [selectedLibrary] = useState<TLibrary>("platejs");
+  const [selectedLibrary, setSelectedLibrary] = useState<TLibrary>("platejs");
 
   // ------ API ------
   const { data: githubData } = useGetRepoDetailsQuery(
@@ -23,7 +23,10 @@ const ContentComponent = () => {
   return (
     <>
       <div className="flex h-full w-[1200px] flex-col justify-center overflow-hidden rounded-b-lg  bg-background md:shadow-xl">
-        <LibrarySelector />
+        <LibrarySelector
+          selectedLibrary={selectedLibrary}
+          setSelectedLibrary={setSelectedLibrary}
+        />
         <br />
         <Playground
           selectedTab={selectedTab}
