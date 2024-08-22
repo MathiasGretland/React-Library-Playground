@@ -32,7 +32,7 @@ const Playground = ({
         </div>
         {/** Github button */}
         {githubData && (
-          <div className="flex items-center mr-12">
+          <div className="flex items-center mr-[52px]">
             <GithubStarButton githubData={githubData} />
           </div>
         )}

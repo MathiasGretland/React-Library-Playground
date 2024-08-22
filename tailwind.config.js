@@ -18,6 +18,7 @@ module.exports = {
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        gradient: "gradient 8s linear infinite",
       },
       keyframes: {
         "border-beam": {
@@ -34,6 +35,11 @@ module.exports = {
           },
           to: {
             "background-position": "0% 0%",
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
           },
         },
       },
