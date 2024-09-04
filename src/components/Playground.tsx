@@ -3,8 +3,9 @@ import ShineBorder from "./magicui/ShineBorder";
 import GithubStarButton from "./GithubStarButton";
 import { TLibrary, TTab } from "../@types";
 import { GithubRepo } from "../redux/@types/GtihubRepo";
-import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
+//import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
 import PlatejsFileTree from "./fileTrees/PlatejsFileTree";
+import PlateEditor from "../libraries/PlateJS/PlateEditor";
 
 export interface PlaygroundProps {
   selectedTab: TTab;
@@ -16,13 +17,15 @@ export interface PlaygroundProps {
 const Playground = ({
   selectedTab,
   setSelectedTab,
-  selectedLibrary,
+  //selectedLibrary,
   githubData,
 }: PlaygroundProps) => {
-  const libraryButtons = getLibrarySelectorValues();
-  const selectedLibraryValue = libraryButtons.find(
-    (button) => button.value === selectedLibrary
-  );
+  //const libraryButtons = getLibrarySelectorValues();
+  /**
+   * const selectedLibraryValue = libraryButtons.find(
+   * (button) => button.value === selectedLibrary
+   * );
+   */
 
   return (
     <div>
@@ -46,16 +49,16 @@ const Playground = ({
       {/* Inner Playground container */}
       <div className="w-11/12 mx-auto">
         <ShineBorder
-          className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+          className="relative flex p-[1px] h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          {selectedTab === "playground" ? (
-            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none ">
-              {selectedLibraryValue?.text}
-            </span>
-          ) : (
-            <PlatejsFileTree />
-          )}
+          <div className="w-full h-full overflow-x-hidden overflow-y-hidden">
+            {selectedTab === "playground" ? (
+              <PlateEditor />
+            ) : (
+              <PlatejsFileTree />
+            )}
+          </div>
         </ShineBorder>
       </div>
     </div>

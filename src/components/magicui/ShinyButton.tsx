@@ -35,7 +35,7 @@ const ShinyButton = ({ text = "", img, onClick }: ShinyButtonProps) => {
     <motion.button
       {...animationProps}
       onClick={onClick}
-      className="relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]"
+      className="relative rounded-lg px-6 py-2 bg-[var(--color-button-bg)] font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]"
     >
       <span
         className="relative h-full w-full text-sm uppercase tracking-wide text-[rgb(0,0,0,65%)] dark:text-[rgb(255,255,255,90%)] flex items-center justify-center"
