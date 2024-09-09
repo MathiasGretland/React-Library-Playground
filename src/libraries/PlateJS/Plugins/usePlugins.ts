@@ -95,7 +95,11 @@ export const plugins: PlatePlugin[] = createPlugins(
     createListPlugin(),
     createTablePlugin(),
     createTodoListPlugin(),
-    createEmojiPlugin(),
+    createEmojiPlugin({
+      options: {
+        trigger: "",
+      },
+    }),
     createIndentPlugin({
       inject: {
         props: {
