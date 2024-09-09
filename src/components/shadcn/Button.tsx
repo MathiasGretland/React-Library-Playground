@@ -26,6 +26,9 @@ const buttonVariants = cva(
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
       },
+      isMenu: {
+        true: "h-auto w-full cursor-pointer justify-start",
+      },
     },
     defaultVariants: {
       variant: "default",

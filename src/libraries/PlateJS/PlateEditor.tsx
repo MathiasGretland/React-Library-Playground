@@ -1,34 +1,38 @@
-import { ELEMENT_DEFAULT, Plate, PlateController } from "@udecode/plate-common";
+import {
+  ELEMENT_DEFAULT,
+  Plate,
+  PlateController,
+  TDescendant,
+} from "@udecode/plate-common";
 import { Editor } from "./Editor";
 import { useRef, useState } from "react";
 import { cn } from "@udecode/cn";
 import { ELEMENT_H1 } from "@udecode/plate-heading";
 import { plugins } from "./Plugins/usePlugins";
 import { FixedToolbar } from "./FixedToolbar";
-import { FixedToolbarButtons } from "./FixedToolbarButtons";
+import { FixedToolbarButtons } from "./ToolbarButtons/FixedToolbarButtons";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 const PlateEditor = () => {
   const editor = useRef(null);
 
-  console.log("plugins", plugins);
-
   const initialValue = [
     {
       type: ELEMENT_H1,
-      children: [{ text: "PlateJS", bold: true }],
+      id: "id001",
+      children: [{ text: "PlateJS" }],
     },
     {
       type: ELEMENT_DEFAULT,
+      id: "id002",
       children: [{ text: "Try it out!" }],
     },
   ];
 
-  const [editorValue, setEditorValue] = useState([]);
+  const [editorValue, setEditorValue] = useState<TDescendant[]>(initialValue);
 
-  /** @ts-expect-error - new value is of Slate Node type, but can differ*/
-  const onEditorChange = (newValue) => {
+  const onEditorChange = (newValue: TDescendant[]) => {
     setEditorValue(newValue);
   };
 
@@ -46,16 +50,17 @@ const PlateEditor = () => {
             ref={editor}
             className={cn(
               // Look at this again, what does this even do?
+              "relative",
               // Block selection
               "[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4"
             )}
           >
-            <FixedToolbar>
+            <FixedToolbar className="z-20">
               <FixedToolbarButtons />
             </FixedToolbar>
 
             <Editor
-              className="px-[96px] py-16 overflow-hidden"
+              className="px-10 py-10 overflow-auto"
               autoFocus
               focusRing={false}
               variant="ghost"
