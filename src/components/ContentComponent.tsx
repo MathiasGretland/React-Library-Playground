@@ -17,7 +17,7 @@ const ContentComponent = () => {
 
   return (
     <>
-      <div className="flex h-full w-[1200px] flex-col justify-center overflow-hidden rounded-b-lg  bg-background md:shadow-xl">
+      <div className="flex h-full w-full max-w-[1200px] min-w-[350px]  flex-col justify-center overflow-hidden rounded-b-lg bg-background md:shadow-xl mx-auto">
         <LibrarySelector
           selectedLibrary={selectedLibrary}
           setSelectedLibrary={setSelectedLibrary}

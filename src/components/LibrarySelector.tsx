@@ -15,7 +15,7 @@ const LibrarySelector = ({
 
   return (
     <div>
-      <h1 className="flex ml-12 mb-2">Library Selector</h1>
+      <h1 className="flex ml-12 mb-2 mt-20">Library Selector</h1>
       <div className="flex ml-12">
         {libraryButtons.map((button) => {
           return (
