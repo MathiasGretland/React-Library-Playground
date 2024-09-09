@@ -18,6 +18,8 @@
   --color-background: #ffffff;
   --color-link-hover: #3e44b3;
   --color-button-bg: #f9f9f9;
+  --color-button-hover: #646cff;
+  --color-code-bg: #f4f4f5;
 
   color: var(--color);
   background-color: var(--color-background);
@@ -27,6 +29,7 @@
   --color: rgba(255, 255, 255, 0.87);
   --color-background: #242424;
   --color-button-bg: #1a1a1a;
+  --color-code-bg: #262626;
 }
 
 a {
@@ -61,5 +64,5 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-button-hover);
 }

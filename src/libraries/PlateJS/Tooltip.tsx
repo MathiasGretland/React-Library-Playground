@@ -50,7 +50,12 @@ export function withTooltip<
           <TooltipTrigger asChild>{component}</TooltipTrigger>
 
           <TooltipPortal>
-            <TooltipContent {...tooltipContentProps}>{tooltip}</TooltipContent>
+            <TooltipContent
+              className="bg-white dark:bg-black"
+              {...tooltipContentProps}
+            >
+              {tooltip}
+            </TooltipContent>
           </TooltipPortal>
         </Tooltip>
       );

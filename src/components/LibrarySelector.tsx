@@ -11,9 +11,6 @@ const LibrarySelector = ({
   selectedLibrary,
   setSelectedLibrary,
 }: LibrarySelectorProps) => {
-  console.log(selectedLibrary);
-  console.log(setSelectedLibrary);
-
   const libraryButtons = getLibrarySelectorValues();
 
   return (

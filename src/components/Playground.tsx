@@ -52,13 +52,13 @@ const Playground = ({
           className="relative flex p-[1px] h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          <div className="w-full h-full overflow-x-hidden overflow-y-hidden">
-            {selectedTab === "playground" ? (
+          {selectedTab === "playground" ? (
+            <div className="w-full h-full overflow-x-auto overflow-y-auto ">
               <PlateEditor />
-            ) : (
-              <PlatejsFileTree />
-            )}
-          </div>
+            </div>
+          ) : (
+            <PlatejsFileTree />
+          )}
         </ShineBorder>
       </div>
     </div>

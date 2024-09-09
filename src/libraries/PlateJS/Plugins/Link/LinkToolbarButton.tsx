@@ -13,7 +13,17 @@ export const LinkToolbarButton = withRef<typeof ToolbarButton>((rest, ref) => {
   const { props } = useLinkToolbarButton(state);
 
   return (
-    <ToolbarButton ref={ref} tooltip="Link" {...props} {...rest}>
+    <ToolbarButton
+      ref={ref}
+      className={
+        state.pressed
+          ? "bg-[--color-button-bg] text-[--color-button-hover]"
+          : ""
+      }
+      tooltip="Link"
+      {...props}
+      {...rest}
+    >
       <Icons.link />
     </ToolbarButton>
   );
