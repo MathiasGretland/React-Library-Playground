@@ -1,13 +1,7 @@
-import {
-  ELEMENT_DEFAULT,
-  Plate,
-  PlateController,
-  TDescendant,
-} from "@udecode/plate-common";
+import { Plate, PlateController, TDescendant } from "@udecode/plate-common";
 import { Editor } from "./Editor";
 import { useRef, useState } from "react";
 import { cn } from "@udecode/cn";
-import { ELEMENT_H1 } from "@udecode/plate-heading";
 import { plugins } from "./Plugins/usePlugins";
 import { FixedToolbar } from "./FixedToolbar";
 import { FixedToolbarButtons } from "./ToolbarButtons/FixedToolbarButtons";
@@ -19,17 +13,156 @@ const PlateEditor = () => {
 
   const initialValue = [
     {
-      type: ELEMENT_H1,
-      id: "id001",
-      children: [{ text: "PlateJS" }],
+      type: "h1",
+      children: [
+        {
+          text: "🌳 PlateJS",
+        },
+      ],
+      id: "1",
     },
     {
-      type: ELEMENT_DEFAULT,
-      id: "id002",
-      children: [{ text: "Try it out!" }],
+      type: "p",
+      children: [
+        {
+          text: "Easily create headings of various levels, from H1 to H6, to structure your content and make it more organized.",
+        },
+      ],
+      id: "2",
+    },
+    {
+      type: "p",
+      children: [
+        {
+          text: "Each block is a React component in which you can manage the state:",
+        },
+      ],
+      id: "5",
+    },
+    {
+      type: "h2",
+      id: "o0u24",
+      children: [
+        {
+          text: "✔️ Todo",
+        },
+      ],
+    },
+    {
+      type: "p",
+      checked: true,
+      indent: 1,
+      listStyleType: "todo",
+      children: [
+        {
+          text: 'Create a "banana language" translation plugin',
+        },
+      ],
+      id: "6",
+    },
+    {
+      type: "p",
+      checked: true,
+      indent: 1,
+      listStyleType: "todo",
+      children: [
+        {
+          text: 'Create a "detect sarcasm" plugin (good luck with that)',
+        },
+      ],
+      listStart: 2,
+      id: "7",
+    },
+    {
+      type: "p",
+      checked: false,
+      indent: 1,
+      listStyleType: "todo",
+      children: [
+        {
+          text: "Create an AI auto-complete plugin",
+        },
+      ],
+      listStart: 3,
+      id: "8",
+    },
+    {
+      type: "h2",
+      children: [
+        {
+          text: "🔗 Link",
+        },
+      ],
+      id: "9",
+    },
+    {
+      type: "p",
+      children: [
+        {
+          text: "Add ",
+        },
+        {
+          type: "a",
+          url: "https://en.wikipedia.org/wiki/Hypertext",
+          children: [
+            {
+              text: "hyperlinks",
+            },
+          ],
+          id: "tlrhc",
+        },
+        {
+          text: " within your text to reference external sources or provide additional information using the Link plugin.",
+        },
+      ],
+      id: "10",
+    },
+    {
+      type: "p",
+      children: [
+        {
+          text: "Effortlessly create hyperlinks using the toolbar or by pasting a URL while selecting the desired text.",
+        },
+      ],
+      id: "11",
+    },
+    {
+      type: "h2",
+      children: [
+        {
+          text: "🤠 Emoji's",
+        },
+      ],
+      id: "23",
+    },
+    {
+      type: "p",
+      children: [
+        {
+          text: "Express yourself with a touch of fun 🎉 and emotion 😃.",
+        },
+      ],
+      id: "24",
+    },
+    {
+      type: "h2",
+      id: "xjoq8",
+      children: [
+        {
+          text: "🚀 Much more!",
+        },
+      ],
+    },
+    {
+      children: [
+        {
+          text: "Test it out yourself!",
+        },
+      ],
+      type: "p",
+      id: "8gwoq",
     },
   ];
-
   const [editorValue, setEditorValue] = useState<TDescendant[]>(initialValue);
 
   const onEditorChange = (newValue: TDescendant[]) => {
@@ -49,9 +182,7 @@ const PlateEditor = () => {
           <div
             ref={editor}
             className={cn(
-              // Look at this again, what does this even do?
               "relative",
-              // Block selection
               "[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4"
             )}
           >

@@ -29,14 +29,7 @@ const ContentComponent = () => {
           selectedLibrary={selectedLibrary}
           githubData={githubData}
         />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <div className="h-32" />
       </div>
     </>
   );

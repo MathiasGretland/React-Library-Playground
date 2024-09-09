@@ -3,9 +3,7 @@ import ShineBorder from "./magicui/ShineBorder";
 import GithubStarButton from "./GithubStarButton";
 import { TLibrary, TTab } from "../@types";
 import { GithubRepo } from "../redux/@types/GtihubRepo";
-//import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
-import PlatejsFileTree from "./fileTrees/PlatejsFileTree";
-import PlateEditor from "../libraries/PlateJS/PlateEditor";
+import { getLibrarySelectorValues } from "../utils/LibrarySelectorUtils";
 
 export interface PlaygroundProps {
   selectedTab: TTab;
@@ -17,15 +15,14 @@ export interface PlaygroundProps {
 const Playground = ({
   selectedTab,
   setSelectedTab,
-  //selectedLibrary,
+  selectedLibrary,
   githubData,
 }: PlaygroundProps) => {
-  //const libraryButtons = getLibrarySelectorValues();
-  /**
-   * const selectedLibraryValue = libraryButtons.find(
-   * (button) => button.value === selectedLibrary
-   * );
-   */
+  const libraryButtons = getLibrarySelectorValues();
+
+  const selectedLibraryValue = libraryButtons.find(
+    (button) => button.value === selectedLibrary
+  );
 
   return (
     <div>
@@ -54,10 +51,16 @@ const Playground = ({
         >
           {selectedTab === "playground" ? (
             <div className="w-full h-full overflow-x-auto overflow-y-auto ">
-              <PlateEditor />
+              {selectedLibraryValue && (
+                <selectedLibraryValue.playgroundComponent />
+              )}
             </div>
           ) : (
-            <PlatejsFileTree />
+            <>
+              {selectedLibraryValue && (
+                <selectedLibraryValue.fileTreeComponent />
+              )}
+            </>
           )}
         </ShineBorder>
       </div>
