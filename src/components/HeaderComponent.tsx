@@ -31,7 +31,7 @@ const HeaderComponent = () => {
             </div>
 
             {/* Centered Title */}
-            <div className="min-w-52">
+            <div className="min-w-52 sm:-translate-x-[0rem] lg:-translate-x-[3.7rem] ">
               <h1 className="text-xl font-bold">React Library Playground</h1>
             </div>
 
