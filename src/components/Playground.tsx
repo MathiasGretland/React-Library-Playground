@@ -34,6 +34,13 @@ const Playground = ({
             setSelectedTab={setSelectedTab}
             selectedTab={selectedTab}
           />
+          <div className="flex items-center ml-2">
+            {selectedLibraryValue && (
+              <selectedLibraryValue.informationDialogComponent
+                tooltip={`Click for more details about ${selectedLibraryValue?.text}`}
+              />
+            )}
+          </div>
         </div>
         {/** Github button */}
         {githubData && (
