@@ -163,13 +163,11 @@ const PlateEditor = () => {
       id: "8gwoq",
     },
   ];
-  const [editorValue, setEditorValue] = useState<TDescendant[]>(initialValue);
+  const [_editorValue, setEditorValue] = useState<TDescendant[]>(initialValue);
 
   const onEditorChange = (newValue: TDescendant[]) => {
     setEditorValue(newValue);
   };
-
-  console.log("editorValue", editorValue);
 
   return (
     <DndProvider backend={HTML5Backend}>

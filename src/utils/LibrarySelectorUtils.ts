@@ -9,6 +9,8 @@ import PlateEditor from "../libraries/PlateJS/PlateEditor";
 import PlatejsFileTree from "../components/fileTrees/PlatejsFileTree";
 import ReactFinalForm from "../libraries/ReactFinalForm/ReactFinalForm";
 import ReactFinalFormTree from "../components/fileTrees/ReactFinalFormTree";
+import PlateJSInformationDialog from "../components/informationDialogs/PlateJSInformationDialog";
+import ReactFinalFormInformationDialog from "../components/informationDialogs/ReactFinalFormInformationDialog";
 
 /**
  * Returns the owner and repo based on which library is passed
@@ -36,6 +38,7 @@ export function getLibrarySelectorValues(): {
   logo: string;
   playgroundComponent: React.ComponentType;
   fileTreeComponent: React.ComponentType;
+  informationDialogComponent: React.ComponentType<{ tooltip: string }>; 
 }[] {
   const isDarkMode = isDarkModeSet();
 
@@ -46,6 +49,7 @@ export function getLibrarySelectorValues(): {
       logo: isDarkMode ? platejsLogoDark : platejsLogoLight,
       playgroundComponent: PlateEditor,
       fileTreeComponent: PlatejsFileTree,
+      informationDialogComponent: PlateJSInformationDialog,
     },
     {
       value: "react-final-form",
@@ -53,6 +57,8 @@ export function getLibrarySelectorValues(): {
       logo: reactFinalFormLogo,
       playgroundComponent: ReactFinalForm,
       fileTreeComponent: ReactFinalFormTree,
+      informationDialogComponent: ReactFinalFormInformationDialog,
+
     },
   ];
 }
