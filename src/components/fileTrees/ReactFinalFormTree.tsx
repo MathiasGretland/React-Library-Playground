@@ -10,8 +10,23 @@ const ReactFinalFormTree = () => {
         indicator
       >
         <Folder element="ReactFinalForm" value="1">
-          <File value="2">
+          <Folder value="2" element="Images">
+            <File value="3">
+              <p>ZooBackground.png</p>
+            </File>
+          </Folder>
+
+          <File value="4">
             <p>ReactFinalForm.tsx</p>
+          </File>
+          <File value="5">
+            <p>ZooDialog.tsx</p>
+          </File>
+          <File value="6">
+            <p>ZooForm.tsx</p>
+          </File>
+          <File value="7">
+            <p>ZooFormValuesDisplay.tsx</p>
           </File>
         </Folder>
       </Tree>
