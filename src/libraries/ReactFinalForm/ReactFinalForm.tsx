@@ -1,10 +1,42 @@
+import { Form } from "react-final-form";
+import ZooForm from "./ZooForm";
+import ZooFromValuesDisplay from "./ZooFormValuesDisplay";
+import { TAnimals } from "../../@types";
+
+const onSubmit = (values: IZooFormValues) => {
+  // You can handle form submission logic here if needed
+  console.log("Form submitted", values);
+};
+const validate = (values: IZooFormValues) => {
+  const errors = {};
+  if (!values.name) {
+    // @ts-expect-error - expecting TypeScript to not recognize 'name' but it exists in IZooFormValues
+    errors.name = "Required";
+  }
+  return errors;
+};
+
+interface IZooFormValues {
+  name: string;
+  borderColor?: string;
+  animals?: TAnimals[];
+}
+
 const ReactFinalForm = () => {
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-center">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-        Work in progress 🛠️
-      </span>
-    </div>
+    <Form
+      onSubmit={onSubmit}
+      validate={validate}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          {/* Width should not be hard set like this, but works for now */}
+          <div className="flex w-[1000px]">
+            <ZooForm />
+            <ZooFromValuesDisplay />
+          </div>
+        </form>
+      )}
+    />
   );
 };
 

@@ -170,35 +170,37 @@ const PlateEditor = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <PlateController>
-        <Plate
-          plugins={plugins}
-          initialValue={initialValue}
-          onChange={(newValue) => onEditorChange(newValue)}
-        >
-          <div
-            ref={editor}
-            className={cn(
-              "relative",
-              "[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4"
-            )}
+    <div className="w-full h-full overflow-x-auto overflow-y-auto ">
+      <DndProvider backend={HTML5Backend}>
+        <PlateController>
+          <Plate
+            plugins={plugins}
+            initialValue={initialValue}
+            onChange={(newValue) => onEditorChange(newValue)}
           >
-            <FixedToolbar className="z-20">
-              <FixedToolbarButtons />
-            </FixedToolbar>
+            <div
+              ref={editor}
+              className={cn(
+                "relative",
+                "[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4"
+              )}
+            >
+              <FixedToolbar className="z-20">
+                <FixedToolbarButtons />
+              </FixedToolbar>
 
-            <Editor
-              className="px-10 py-10 overflow-auto"
-              autoFocus
-              focusRing={false}
-              variant="ghost"
-              size="md"
-            />
-          </div>
-        </Plate>
-      </PlateController>
-    </DndProvider>
+              <Editor
+                className="px-10 py-10 overflow-auto"
+                autoFocus
+                focusRing={false}
+                variant="ghost"
+                size="md"
+              />
+            </div>
+          </Plate>
+        </PlateController>
+      </DndProvider>
+    </div>
   );
 };
 

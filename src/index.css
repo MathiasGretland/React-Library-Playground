@@ -18,6 +18,7 @@
   --color-background: #ffffff;
   --color-link-hover: #3e44b3;
   --color-button-bg: #f9f9f9;
+  --color-button-bg-secondary: #1a1a1a;
   --color-button-hover: #646cff;
   --color-code-bg: #f4f4f5;
 
@@ -29,6 +30,7 @@
   --color: rgba(255, 255, 255, 0.87);
   --color-background: #242424;
   --color-button-bg: #1a1a1a;
+  --color-button-bg-secondary: #f9f9f9;
   --color-code-bg: #262626;
 }
 
